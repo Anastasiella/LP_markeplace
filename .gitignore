@@ -1,1 +1,7 @@
 README.md
+.vscode/
+__pycache__/
+env/
+config.py
+*db
+
