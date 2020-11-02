@@ -8,8 +8,6 @@ sys.path.append(dirname(pathlib.Path(__file__).parent))
 
 from marketplace.utils.db_exec import DbExecutor, get_auth
 
-
-
 category_name = [
      {"name": "яблоки", "cat": "фрукты"},
      {"name": "тыква", "cat": "овощи"},

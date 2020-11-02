@@ -5,13 +5,22 @@ from marketplace.db import db
 
 
 class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(64), index=True, unique=True)
     password = db.Column(db.String(128))
     role = db.Column(db.String(10), index=True)
     email = db.Column(db.String(50), unique=True)
 
-    stores = relationship("Store", back_populates="seller")
+    stores = db.relationship("Store", backref="seller", lazy=True)
+
+    def __init__(self, id, username, password, role, email):
+        self.id = id
+        self.username = username
+        self.password = password
+        self.role = role
+        self.email = email
 
     def set_password(self, password):
         self.password = generate_password_hash(password)

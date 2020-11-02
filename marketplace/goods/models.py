@@ -11,6 +11,7 @@ class Good(db.Model):
     created_at = db.Column(db.DateTime)
     image_path = db.Column(db.String(50))
     category_id = db.Column(db.Integer, db.ForeignKey('category.category_id'), nullable=False)
+    store_id = db.Column(db.Integer, db.ForeignKey('store.id'), nullable=False)
 
     def __init__(self, good_id, name, description, price, quantity, created_at, image_path, category_id):
         self.good_id = good_id

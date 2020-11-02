@@ -7,7 +7,7 @@ from marketplace.category.views import category_blueprint
 from marketplace.general.views import general_blueprint
 from marketplace.user.views import user_blueprint
 from marketplace.goods.views import goods_blueprint
-
+from marketplace.store.models import Store
 from marketplace.user.models import User
 
 app = Flask(__name__)
