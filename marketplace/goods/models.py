@@ -1,4 +1,5 @@
 from marketplace.db import db
+from sqlalchemy.orm import relationship
 
 
 class Good(db.Model):
@@ -11,6 +12,8 @@ class Good(db.Model):
     created_at = db.Column(db.DateTime)
     image_path = db.Column(db.String(50))
     category_id = db.Column(db.Integer, db.ForeignKey('category.category_id'), nullable=False)
+
+    stores = relationship("Store", back_populates="goods")
 
     def __init__(self, good_id, name, description, price, quantity, created_at, image_path, category_id):
         self.good_id = good_id
